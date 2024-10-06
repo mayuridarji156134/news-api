@@ -17,20 +17,15 @@ A Laravel-based News Aggregator API that aggregates news from various sources an
 
 ## Setup Instructions
 
-### 1. Clone the Repository
+1) composer install
+2) .env changes if required
+   change project path in docker.compose.yml for app and nginx service in volumes
+   permission for storage and bootstarp folder
+3) docker-compose build app
+4) docker-compoase up -d 
+5) docker-compose exec app php artisan migrate
+6) php artisan l5-swagger:generate
+7) php artisan articles:fetch
 
-```bash
-git clone https://github.com/yourusername/news-aggregator-api.git
-cd news-aggregator-api
-
-composer install
-
-APP_NAME=NewsAggregatorAPI
-APP_URL=http://localhost
-DB_CONNECTION=mysql
-DB_HOST=db
-DB_PORT=3306
-DB_DATABASE=laravel
-DB_USERNAME=user
-DB_PASSWORD=secret
-SANCTUM_STATEFUL_DOMAINS=localhost
+APIs will be accessed on
+127.0.0.1:8082/api/documentation
