@@ -40,7 +40,7 @@ A Laravel-based News Aggregator API that aggregates news from various sources an
 6. Generate Swagger Documentation:
    php artisan l5-swagger:generate
 
-7. Fetch Articles:
+7. Fetch Articles Manually:
    php artisan articles:fetch
 
 8. Testing the Application
@@ -73,7 +73,9 @@ POST /api/login - User login
 
 POST /api/logout - User logout (Require Bearer token)
 
-POST /api/password/reset - Password reset
+POST /api/password/email - Send mail to generate url to reset password
+
+POST /api/password/reset - Password reset (you need to pass generated token which is sent to mail in previous step, previous step will generate url to reset password, you need to copy token and pass into this api to make it work)
 
 
 2. Articles
